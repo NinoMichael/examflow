@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.examflow.controllers.LoginController">
+   <children>
+      <AnchorPane prefHeight="601.0" prefWidth="800.0">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/bg-examflow.jpg" />
+               </image>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.39694657921791077" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <StackPane layoutX="400.0" layoutY="81.0" prefHeight="393.0" prefWidth="376.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20229008793830872" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="titleLogin" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="33.0" prefHeight="17.0" prefWidth="344.0" text="Bienvenue sur ExamFlow" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label fx:id="pLogin" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="67.0" prefHeight="17.0" prefWidth="216.0" text="Connectez-vous à votre compte" textAlignment="CENTER" />
+                        <ImageView fitHeight="17.0" fitWidth="21.0" layoutX="59.0" layoutY="110.0" opacity="0.59" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/email.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="email" layoutX="89.0" layoutY="110.0" prefHeight="17.0" prefWidth="216.0" text="Adresse e-mail" />
+                        <TextField fx:id="inputEmail" layoutX="59.0" layoutY="144.0" prefHeight="28.0" prefWidth="258.0" />
+                        <Label fx:id="password" layoutX="89.0" layoutY="197.0" prefHeight="17.0" prefWidth="216.0" text="Mot de passe" />
+                        <ImageView fitHeight="17.0" fitWidth="21.0" layoutX="59.0" layoutY="197.0" opacity="0.59" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/lock.png" />
+                           </image>
+                        </ImageView>
+                        <PasswordField fx:id="inputMdp" layoutX="59.0" layoutY="238.0" prefHeight="28.0" prefWidth="258.0" />
+                        <Button fx:id="btnLogin" layoutX="59.0" layoutY="305.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="258.0" style="-fx-background-color: #434446;" text="Se connecter" textFill="WHITE">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color opacity="0.3549618422985077" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

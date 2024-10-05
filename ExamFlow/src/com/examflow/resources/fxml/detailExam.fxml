@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="800.0" style="-fx-background-color: e9c283;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="448.0" prefWidth="800.0">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="47.0" layoutY="14.0" opacity="0.69" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons/back.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="238.0" layoutY="145.0" prefHeight="263.0" prefWidth="325.0" style="-fx-background-color: white; -fx-background-radius: 8;" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
