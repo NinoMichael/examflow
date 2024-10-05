@@ -6,10 +6,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Pane?>é
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="800.0" style="-fx-background-color: e9c283;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.examflow.controllers.CodeVerificationController">
    <children>
@@ -25,14 +24,14 @@
                   <Image url="@../images/verification-code.png" />
                </image>
             </ImageView>
-            <Label fx:id="titleCode" alignment="CENTER" contentDisplay="CENTER" layoutX="262.0" layoutY="185.0" prefHeight="17.0" prefWidth="276.0" text="Code de session à l'examen" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="262.0" layoutY="185.0" prefHeight="17.0" prefWidth="276.0" text="Code de session à l'examen" textAlignment="CENTER">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label fx:id="introCode" alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="211.0" prefHeight="37.0" prefWidth="496.0" text="Veuillez saisir le code de session que vous avez reçu dans votre notification, qui vous permettra d'assister à l'examen" textAlignment="CENTER" wrapText="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="211.0" prefHeight="37.0" prefWidth="496.0" text="Veuillez saisir le code de session que vous avez reçu dans votre notification, qui vous permettra d'assister à l'examen" textAlignment="CENTER" wrapText="true" />
             <TextField layoutX="305.0" layoutY="274.0" prefHeight="37.0" prefWidth="191.0" />
-            <Label fx:id="resendCode" alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="328.0" prefHeight="37.0" prefWidth="496.0" text="Renvoyer le code ?" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="328.0" prefHeight="37.0" prefWidth="496.0" text="Renvoyer le code ?" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -40,7 +39,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Button fx:id="btnValidate" layoutX="267.0" layoutY="381.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="267.0" style="-fx-background-color: #4A4848;" text="Valider" textFill="WHITE">
+            <Button layoutX="267.0" layoutY="381.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="267.0" style="-fx-background-color: #4A4848;" text="Valider" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
