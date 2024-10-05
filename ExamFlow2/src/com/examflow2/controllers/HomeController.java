@@ -102,7 +102,7 @@ public class HomeController {
 	 }
 	 
 	 public void createExamInterface() {
-		 URL fxmlLocation = getClass().getResource("/com/examflow2/resources/fxml/listExam.fxml");
+		 URL fxmlLocation = getClass().getResource("/com/examflow2/resources/fxml/createExam.fxml");
 	        try {
 	            
 	            if (fxmlLocation != null) {
