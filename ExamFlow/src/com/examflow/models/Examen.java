@@ -1,6 +1,8 @@
 package com.examflow.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Examen {
 	public int id;
@@ -44,14 +46,20 @@ public class Examen {
 	public LocalDateTime getDebut() {
 		return debut;
 	}
-	public void setDebut(LocalDateTime debut) {
-		this.debut = debut;
+	public void setDebut(LocalDate dateDebut, String heureDebut) {
+		// Parse the heureDebut string to LocalTime
+        LocalTime timeDebut = LocalTime.parse(heureDebut);
+        
+        // Combine LocalDate and LocalTime into LocalDateTime
+        this.debut = LocalDateTime.of(dateDebut, timeDebut);
+
 	}
 	public LocalDateTime getFin() {
 		return fin;
 	}
-	public void setFin(LocalDateTime fin) {
-		this.fin = fin;
+	public void setFin(LocalDate dateFin, String heureFin) {
+		LocalTime timeFin = LocalTime.parse(heureFin);
+		this.fin = LocalDateTime.of(dateFin, timeFin);
 	}
 	public String getInstruction() {
 		return instruction;
