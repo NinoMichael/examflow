@@ -11,6 +11,18 @@ public class Examen {
 	public String instruction;
 	public Enseignant enseignant;
 	
+	public Examen() {}
+	
+	public Examen(int id, String code, String theme, LocalDateTime debut, LocalDateTime fin, String instruction, Enseignant enseignant) {
+		this.id = id;
+		this.code = code;
+		this.theme = theme;
+		this.debut = debut;
+		this.fin = fin;
+		this.instruction = instruction;
+		this.enseignant = enseignant;
+	}
+	
 	public int getId() {
 		return id;
 	}
