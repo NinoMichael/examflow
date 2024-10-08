@@ -1,14 +1,46 @@
 package com.examflow2.controllers;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+import com.examflow.dao.ExamenDao;
+import com.examflow.models.Examen;
+import com.examflow.models.Enseignant;
+
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class CreateExamController {
-	public Label theme, dateDebut, dateFin, heureDebut, heureFin, instruction, configure, prepareExam;
 	
+	@FXML
+	public TextField inputTheme;
+	
+	@FXML
+	public DatePicker inputDateDebut;
+	
+	@FXML
+	public TextField inputHeureDebut;
+	
+	@FXML
+	public DatePicker inputDateFin;
+	
+	@FXML
+	public TextField inputHeureFin;
+	
+	@FXML
+	public TextField inputInstruction;
+	
+	@FXML
 	public Button btnNext;
+	
+	public Label theme, dateDebut, dateFin, heureDebut, heureFin, instruction, configure, prepareExam;
 	
 	public HomeController homeController;
 
@@ -17,7 +49,14 @@ public class CreateExamController {
 	}
 	
 	public void initialize() {
-		adjustLayout();
+		// Ajustement de la mise en page
+		btnNext.setOnAction(event -> {
+            try {
+            	handleRegister();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+        });
 	}
 	
 	public void adjustLayout() {
@@ -36,4 +75,37 @@ public class CreateExamController {
 		configure.setFont(poppinsFont);
 		btnNext.setFont(poppinsBoldFont12);
 	}
+
+    public void handleRegister() throws IOException {
+    	String themeInput = inputTheme.getText();
+    	LocalDate dateDebut = inputDateDebut.getValue();
+    	String heureDebut = inputHeureDebut.getText();
+    	LocalDate dateFin = inputDateFin.getValue();
+    	String heureFin = inputHeureFin.getText();
+        String instruction = inputInstruction.getText();
+        
+        if (themeInput.isEmpty() || heureDebut.isEmpty() || heureFin.isEmpty() || instruction.isEmpty()) {
+            System.out.println("Information incomplète");
+            return;
+        }
+        
+        // Conversion des heures en LocalTime et combinaison avec LocalDate
+        LocalTime timeDebut = LocalTime.parse(heureDebut);
+        LocalDateTime debut = LocalDateTime.of(dateDebut, timeDebut);
+        
+        LocalTime timeFin = LocalTime.parse(heureFin);
+        LocalDateTime fin = LocalDateTime.of(dateFin, timeFin);
+
+        // Création d'un objet Examen
+        Examen examen = new Examen();
+        examen.setTheme(themeInput);
+        examen.setDebut(dateDebut, heureDebut);
+        examen.setFin(dateFin, heureFin);
+        examen.setInstruction(instruction);
+        
+        // Transfert des informations vers le DAO
+        ExamenDao.createExamen(examen);
+        
+        homeController.switchToNextScene();  // Change la scène après enregistrement
+    }
 }

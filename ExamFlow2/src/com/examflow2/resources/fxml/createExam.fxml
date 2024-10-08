@@ -51,23 +51,23 @@
                                        </font>
                                     </Label>
                                     <Label fx:id="theme" layoutX="37.0" layoutY="81.0" prefHeight="17.0" prefWidth="305.0" text="Thème" />
-                                    <TextField layoutX="37.0" layoutY="106.0" prefHeight="32.0" prefWidth="330.0" />
+                                    <TextField fx:id="inputTheme" layoutX="37.0" layoutY="106.0" prefHeight="32.0" prefWidth="330.0" />
                                     <Label fx:id="dateDebut" layoutX="37.0" layoutY="160.0" prefHeight="17.0" prefWidth="150.0" text="Date de début" />
-                                    <DatePicker layoutX="37.0" layoutY="181.0" prefHeight="25.0" prefWidth="158.0">
+                                    <DatePicker fx:id="inputDateDebut" layoutX="37.0" layoutY="181.0" prefHeight="25.0" prefWidth="158.0">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor></DatePicker>
                                     <Label fx:id="dateFin" layoutX="209.0" layoutY="160.0" prefHeight="17.0" prefWidth="150.0" text="Date de fin" />
-                                    <DatePicker layoutX="209.0" layoutY="181.0" prefHeight="25.0" prefWidth="158.0">
+                                    <DatePicker fx:id="inputDateFin" layoutX="205.0" layoutY="181.0" prefHeight="25.0" prefWidth="158.0">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor></DatePicker>
-                                    <TextField layoutX="40.0" layoutY="255.0" prefHeight="32.0" prefWidth="153.0" />
-                                    <TextField layoutX="211.0" layoutY="255.0" prefHeight="32.0" prefWidth="154.0" />
+                                    <TextField fx:id="inputHeureDebut" layoutX="40.0" layoutY="255.0" prefHeight="32.0" prefWidth="153.0" />
+                                    <TextField fx:id="inputHeureFin" layoutX="211.0" layoutY="255.0" prefHeight="32.0" prefWidth="154.0" />
                                     <Label fx:id="heureDebut" layoutX="41.0" layoutY="229.0" prefHeight="17.0" prefWidth="150.0" text="Heure de début" />
                                     <Label fx:id="heureFin" layoutX="209.0" layoutY="229.0" prefHeight="17.0" prefWidth="150.0" text="Heure de fin" />
                                     <Label fx:id="instruction" layoutX="41.0" layoutY="309.0" prefHeight="17.0" prefWidth="150.0" text="Instruction" />
-                                    <TextField layoutX="39.0" layoutY="332.0" prefHeight="110.0" prefWidth="327.0" />
+                                    <TextField fx:id="inputInstruction" layoutX="39.0" layoutY="332.0" prefHeight="110.0" prefWidth="327.0" />
                                     <Button fx:id="btnNext" layoutX="41.0" layoutY="475.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="176.0" style="-fx-background-color: white;" text="Suivant">
                                        <effect>
                                           <DropShadow>

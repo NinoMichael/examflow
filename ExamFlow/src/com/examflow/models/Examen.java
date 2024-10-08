@@ -11,24 +11,24 @@ public class Examen {
 	public LocalDateTime debut;
 	public LocalDateTime fin;
 	public String instruction;
-	public Enseignant enseignant;
+	public Enseignant idEnseignant;
 	
 	public Examen() {}
 	
-	public Examen(int id, String code, String theme, LocalDateTime debut, LocalDateTime fin, String instruction, Enseignant enseignant) {
+	public Examen(int id, String code, String theme, LocalDateTime debut, LocalDateTime fin, String instruction, Enseignant idEnseignant) {
 		this.id = id;
 		this.code = code;
 		this.theme = theme;
 		this.debut = debut;
 		this.fin = fin;
 		this.instruction = instruction;
-		this.enseignant = enseignant;
+		this.idEnseignant = idEnseignant;
 	}
 	
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setIdExamen(int id) {
 		this.id = id;
 	}
 	public String getCode() {
@@ -67,11 +67,11 @@ public class Examen {
 	public void setInstruction(String instruction) {
 		this.instruction = instruction;
 	}
-	public Enseignant getEnseignant() {
-		return enseignant;
+	public Enseignant getIdEnseignant() {
+		return idEnseignant;
 	}
-	public void setEnseignant(Enseignant enseignant) {
-		this.enseignant = enseignant;
+	public void setIdEnseignant(Enseignant idEnseignant) {
+		this.idEnseignant = idEnseignant;
 	}
 	
 	
