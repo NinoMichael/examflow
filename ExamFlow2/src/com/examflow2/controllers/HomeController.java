@@ -102,7 +102,7 @@ public class HomeController {
 	 }
 	 
 	 public void createExamInterface() {
-		 URL fxmlLocation = getClass().getResource("/com/examflow2/resources/fxml/listExam.fxml");
+		 URL fxmlLocation = getClass().getResource("/com/examflow2/resources/fxml/createExam.fxml");
 	        try {
 	            
 	            if (fxmlLocation != null) {
@@ -142,4 +142,13 @@ public class HomeController {
         cancelLogout.setFont(poppinsFont12);
         confirmLogout.setFont(poppinsFont12);
 	}
+	
+	public void switchToNextScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/examflow2/resources/fxml/createExam2.fxml"));
+        Scene registerScene = new Scene(loader.load());
+        
+        if (stage != null) {
+            stage.setScene(registerScene);
+        }
+    }
 }
