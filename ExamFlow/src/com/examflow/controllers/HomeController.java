@@ -139,6 +139,27 @@ public class HomeController {
 	        }
 	 }
 	
+	public void detailExamInterface() {
+		 URL fxmlLocation = getClass().getResource("/com/examflow/resources/fxml/detailExam.fxml");
+	        try {
+	            
+	            if (fxmlLocation != null) {
+	                FXMLLoader loader = new FXMLLoader(fxmlLocation);
+	                VBox content = loader.load();
+	   
+	                DetailExamController detailExamController = loader.getController();
+	                detailExamController.setHomeController(this);
+	                
+	                dashContainer.getChildren().clear();
+	                dashContainer.getChildren().add(content);
+	            } else {
+	                System.out.println("detailExam.fxml not found!");
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	 }
+	
 	public void adjustLayout() {
 		Font customFont = Font.loadFont(getClass().getResourceAsStream("/com/examflow/resources/fonts/Poppins-Regular.ttf"), 20);
         Font poppinsFont = Font.font(customFont.getName(), FontWeight.BOLD, 15);

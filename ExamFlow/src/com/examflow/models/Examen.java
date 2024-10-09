@@ -46,6 +46,7 @@ public class Examen {
 	public LocalDateTime getDebut() {
 		return debut;
 	}
+	
 	public void setDebut(LocalDate dateDebut, String heureDebut) {
 		// Parse the heureDebut string to LocalTime
         LocalTime timeDebut = LocalTime.parse(heureDebut);

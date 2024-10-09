@@ -6,12 +6,12 @@ import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class CodeVerificationController {
+public class DetailExamController {
 	@FXML
-	public Label titleCode, introCode, resendCode;
+	public Label theme, themeIntitule, duree, sessionDuration, question, numberQuestion, point, totalPoint;
 	
 	@FXML
-	public Button btnValidate;
+	public Button btnStartExam;
 	
 	public HomeController homeController;
 
@@ -21,20 +21,20 @@ public class CodeVerificationController {
 	
 	public void initialize() {
 		adjustLayout();
-		btnValidate.setOnAction(e -> {
-			homeController.detailExamInterface();
-		});
 	}
 	
 	public void adjustLayout() {
 		Font customFont = Font.loadFont(getClass().getResourceAsStream("/com/examflow/resources/fonts/Poppins-Regular.ttf"), 20);
 		Font poppinsFont12 = Font.font(customFont.getName(), 12);
-		Font poppinsFontBold12 = Font.font(customFont.getName(), FontWeight.BOLD, 12);
-		Font poppinsFont = Font.font(customFont.getName(), FontWeight.BOLD, 18);
+		Font poppinsFontBold16 = Font.font(customFont.getName(), FontWeight.BOLD, 16);
 		
-		titleCode.setFont(poppinsFont);
-		introCode.setFont(poppinsFont12);
-		resendCode.setFont(poppinsFont12);
-		btnValidate.setFont(poppinsFontBold12);
+		theme.setFont(poppinsFont12);
+		themeIntitule.setFont(poppinsFontBold16);
+		duree.setFont(poppinsFont12);
+		sessionDuration.setFont(poppinsFontBold16);
+		question.setFont(poppinsFont12);
+		numberQuestion.setFont(poppinsFontBold16);
+		point.setFont(poppinsFont12);
+		totalPoint.setFont(poppinsFontBold16);
 	}
 }

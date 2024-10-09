@@ -11,67 +11,77 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/charm-glisten-6.0.6.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/charm-glisten-6.0.6.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/javafx.base.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/javafx.base.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/javafx.controls.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/javafx.controls.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/javafx.fxml.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/javafx.fxml.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/javafx.graphics.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/javafx.graphics.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/javafx.media.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/javafx.media.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/javafx.swing.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/javafx.swing.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/javafx.web.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/javafx.web.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/javafx-swt.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/javafx-base-20.0.2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/util-4.0.6-sources.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/javafx-graphics-20.0.2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/util-4.0.21.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/javafx-swt.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/javafx-sdk-22.0.2/lib/vibration-4.0.21.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/util-4.0.6-sources.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/ESMIA/En Licence 3/Java Avancé/mysql-connector-j-9.0.0/mysql-connector-j-9.0.0/mysql-connector-j-9.0.0.jar">
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/util-4.0.21.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/javafx-sdk-22.0.2/lib/vibration-4.0.21.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Jerry/Downloads/Compressed/mysql-connector-j-9.0.0/mysql-connector-j-9.0.0/mysql-connector-j-9.0.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
