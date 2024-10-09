@@ -8,7 +8,7 @@ import javafx.scene.text.FontWeight;
 
 public class DetailExamController {
 	@FXML
-	public Label theme, themeIntitule, duree, sessionDuration, question, numberQuestion, point, totalPoint;
+	public Label theme, themeIntitule, duree, sessionDuration, question, numberQuestion, point, totalPoint, welcomeExam, consigneExam;
 	
 	@FXML
 	public Button btnStartExam;
@@ -21,6 +21,9 @@ public class DetailExamController {
 	
 	public void initialize() {
 		adjustLayout();
+		btnStartExam.setOnAction(e -> {
+			homeController.examenInterface();
+		});
 	}
 	
 	public void adjustLayout() {
@@ -36,5 +39,7 @@ public class DetailExamController {
 		numberQuestion.setFont(poppinsFontBold16);
 		point.setFont(poppinsFont12);
 		totalPoint.setFont(poppinsFontBold16);
+		welcomeExam.setFont(poppinsFontBold16);
+		consigneExam.setFont(poppinsFont12);
 	}
 }

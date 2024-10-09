@@ -82,12 +82,12 @@
                   <Image url="@../images/exam-ready.png" />
                </image>
             </ImageView>
-            <Label layoutX="84.0" layoutY="242.0" prefHeight="24.0" prefWidth="229.0" text="Bienvenue à l'examen">
+            <Label fx:id="welcomeExam" layoutX="84.0" layoutY="242.0" prefHeight="24.0" prefWidth="229.0" text="Bienvenue à l'examen">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" layoutX="48.0" layoutY="283.0" prefHeight="88.0" prefWidth="265.0" text="Veuillez respecter le temps imparti, éviter toute forme de tricherie, maintenir une connexion stable, et suivre les instructions données. Assurez-vous de soumettre vos réponses avant la fin de l'examen." textAlignment="CENTER" wrapText="true" />
+            <Label fx:id="consigneExam" alignment="TOP_LEFT" layoutX="48.0" layoutY="283.0" prefHeight="88.0" prefWidth="265.0" text="Veuillez respecter le temps imparti, éviter toute forme de tricherie, maintenir une connexion stable, et suivre les instructions données. Assurez-vous de soumettre vos réponses avant la fin de l'examen." textAlignment="CENTER" wrapText="true" />
          </children>
       </Pane>
    </children>
