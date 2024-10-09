@@ -1,6 +1,7 @@
 package com.examflow.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
@@ -13,6 +14,9 @@ public class ExamenController {
 	@FXML
 	public CheckBox reponse1;
 	
+	@FXML
+	public Button btnValideReponse;
+	
 	public HomeController homeController;
 
 	public void setHomeController(HomeController homeController) {
@@ -21,6 +25,9 @@ public class ExamenController {
 	
 	public void initialize() {
 		adjustLayout();
+		btnValideReponse.setOnAction(e -> {
+			homeController.resultExamInterface();
+		});
 	}
 	
 	public void adjustLayout() {
