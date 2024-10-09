@@ -42,7 +42,6 @@ public class SplashController {
     }
 
 
-
     private void switchToNextScene() {
         try {
         	 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/examflow/resources/fxml/login.fxml"));
@@ -50,7 +49,6 @@ public class SplashController {
 
              LoginController loginController = loader.getController();
              loginController.setStage(stage);
-             
 
              stage.setScene(loginScene);
         } catch (IOException e) {

@@ -29,7 +29,7 @@ public class HomeController {
 	public AnchorPane anchorDialog;
 	
 	@FXML
-	public Pane optionContainer, paneExam;
+	public Pane optionContainer, paneExam, paneHistory;
 	
 	@FXML
 	public ImageView userProfile, bellIcon;
@@ -58,6 +58,9 @@ public class HomeController {
 		nameUser.setText(LoginController.sessionEtudiant.getNom());
 		paneExam.setOnMouseClicked(event -> {
 			listExamInterface();
+		}); 
+		paneHistory.setOnMouseClicked(event -> {
+			listExamPassedInterface();
 		}); 
 	}
 	
@@ -112,6 +115,27 @@ public class HomeController {
 	                dashContainer.getChildren().add(content);
 	            } else {
 	                System.out.println("listExam.fxml not found!");
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	 }
+	
+	public void listExamPassedInterface() {
+		 URL fxmlLocation = getClass().getResource("/com/examflow/resources/fxml/listExamPassed.fxml");
+	        try {
+	            
+	            if (fxmlLocation != null) {
+	                FXMLLoader loader = new FXMLLoader(fxmlLocation);
+	                VBox content = loader.load();
+	   
+	                ListExamPassedController listExamPassedController = loader.getController();
+	                listExamPassedController.setHomeController(this);
+	                
+	                dashContainer.getChildren().clear();
+	                dashContainer.getChildren().add(content);
+	            } else {
+	                System.out.println("listExamPassed.fxml not found!");
 	            }
 	        } catch (IOException e) {
 	            e.printStackTrace();
