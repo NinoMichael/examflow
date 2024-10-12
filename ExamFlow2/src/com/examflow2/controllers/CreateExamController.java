@@ -14,10 +14,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class CreateExamController {
+	@FXML
+	public ImageView btnBack;
 	
 	@FXML
 	public TextField inputTheme;
@@ -49,6 +52,8 @@ public class CreateExamController {
 	}
 	
 	public void initialize() {
+		adjustLayout();
+		
 		btnNext.setOnAction(event -> {
             try {
             	handleRegister();
@@ -56,6 +61,10 @@ public class CreateExamController {
 				e.printStackTrace();
 			}
         });
+		
+		btnBack.setOnMouseClicked(e1 -> {
+			homeController.dashboardInterface();
+		});
 	}
 	
 	public void adjustLayout() {
@@ -102,6 +111,6 @@ public class CreateExamController {
         
         ExamenDao.createExamen(examen, LoginController.sessionEnseignant);
         
-        homeController.switchToNextScene();
+        homeController.createExam2Interface();
     }
 }

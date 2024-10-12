@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="800.0" style="-fx-background-color: e9c283;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.examflow.controllers.DashboardController">
+   <children>
+      <HBox prefHeight="448.0" prefWidth="800.0">
+         <children>
+            <Pane prefHeight="446.0" prefWidth="401.0">
+               <children>
+                  <ImageView fitHeight="285.0" fitWidth="290.0" layoutX="89.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/img-home.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="titleDash" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="292.0" prefHeight="66.0" prefWidth="290.0" text="Rejoignez et passez une session d'examen en ligne avec la plateforme" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="446.0" prefWidth="414.0">
+               <children>
+                  <AnchorPane layoutX="71.0" layoutY="90.0" prefHeight="97.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+                     <children>
+                        <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="25.0" layoutY="26.0" opacity="0.67" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/exam.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="passExamTitle" layoutX="89.0" layoutY="36.0" prefHeight="17.0" prefWidth="136.0" text="Passer à l'examen">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color opacity="0.14885495603084564" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </AnchorPane>
+                  <AnchorPane layoutX="71.0" layoutY="235.0" prefHeight="97.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+                     <children>
+                        <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="25.0" layoutY="26.0" opacity="0.67" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/history.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="seeHistoryTitle" layoutX="89.0" layoutY="36.0" prefHeight="17.0" prefWidth="136.0" text="Voir historique">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color opacity="0.14885495603084564" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </AnchorPane>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

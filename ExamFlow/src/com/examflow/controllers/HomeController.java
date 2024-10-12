@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -20,22 +19,22 @@ import javafx.stage.Stage;
 
 public class HomeController {
 	@FXML
-	public Label introText, passExam, seeHistory, logout, profil, nameUser, pLogout;
+	public Label logout, profil, nameUser, pLogout;
 	
 	@FXML
-	public StackPane dashContainer;
+	public Pane dashContainer;
+	
+	@FXML
+	public Rectangle rectangleCenter, rectangleTop, rectangleBottom;
 	
 	@FXML
 	public AnchorPane anchorDialog;
 	
 	@FXML
-	public Pane optionContainer, paneExam, paneHistory;
+	public Pane optionContainer;
 	
 	@FXML
 	public ImageView userProfile, bellIcon;
-	
-	@FXML
-	public Rectangle rectangle;
 	
 	@FXML
 	public Button cancelLogout, confirmLogout;
@@ -48,38 +47,34 @@ public class HomeController {
 	
 	public void initialize() {
 		adjustLayout();
-		optionContainer.setVisible(false);
-		rectangle.setVisible(false);
+		dashboardInterface();
 		anchorDialog.setVisible(false);
-		
-		hideOptionContainer();
-		logoutAction();
-		
-		nameUser.setText(LoginController.sessionEtudiant.getNom());
-		paneExam.setOnMouseClicked(event -> {
-			listExamInterface();
-		}); 
-		paneHistory.setOnMouseClicked(event -> {
-			listExamPassedInterface();
-		}); 
+		rectangleCenter.setVisible(false);
+		rectangleTop.setVisible(false);
+		rectangleBottom.setVisible(false);
+		nameUser.setText(LoginController.sessionEtudiant.getNom()); 
 	}
 	
 	 public void hideOptionContainer() {
-        optionContainer.setVisible(false);
-        userProfile.setOnMouseClicked(event -> optionContainer.setVisible(!optionContainer.isVisible()));
+		 optionContainer.setVisible(false);
+		    userProfile.setOnMouseClicked(event -> {
+		        optionContainer.setVisible(!optionContainer.isVisible());
+		    });
 	 }
 	 
 	 public void logoutAction() {
 		 logout.setOnMouseClicked(event -> {
-			 rectangle.setVisible(true);
-			 paneExam.setOpacity(0.5);
 			 optionContainer.setVisible(false);
+			 rectangleCenter.setVisible(true);
+			 rectangleTop.setVisible(true);
+			 rectangleBottom.setVisible(true);
 			 anchorDialog.setVisible(true);
 			 
 			 cancelLogout.setOnAction(event1 -> {
-				 rectangle.setVisible(false);
-				 paneExam.setOpacity(1);
 				 anchorDialog.setVisible(false);
+				 rectangleCenter.setVisible(false);
+				 rectangleTop.setVisible(false);
+				 rectangleBottom.setVisible(false);
 			 });
 			 
 			 confirmLogout.setOnAction(event2 -> {
@@ -100,6 +95,32 @@ public class HomeController {
 		 });
 	 }
 	 
+	public void dashboardInterface() {
+		URL fxmlLocation = getClass().getResource("/com/examflow/resources/fxml/dashboard.fxml");
+        try {
+            
+            if (fxmlLocation != null) {
+                FXMLLoader loader = new FXMLLoader(fxmlLocation);
+                VBox content = loader.load();
+   
+                DashboardController dashboardController = loader.getController();
+                dashboardController.setHomeController(this);
+                
+                dashContainer.getChildren().clear() ;               
+                dashContainer.getChildren().add(content);
+                dashContainer.getChildren().add(optionContainer);
+                dashContainer.getChildren().add(rectangleCenter);
+                dashContainer.getChildren().add(anchorDialog);
+                hideOptionContainer();
+        		logoutAction();
+            } else {
+                System.out.println("listExam.fxml not found!");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	 
 	public void listExamInterface() {
 		 URL fxmlLocation = getClass().getResource("/com/examflow/resources/fxml/listExam.fxml");
 	        try {
@@ -111,8 +132,13 @@ public class HomeController {
 	                ListExamController listExamController = loader.getController();
 	                listExamController.setHomeController(this);
 	                
-	                dashContainer.getChildren().clear();
+	                dashContainer.getChildren().clear() ;               
 	                dashContainer.getChildren().add(content);
+	                dashContainer.getChildren().add(optionContainer);
+	                dashContainer.getChildren().add(rectangleCenter);
+	                dashContainer.getChildren().add(anchorDialog);
+	                hideOptionContainer();
+	        		logoutAction();
 	            } else {
 	                System.out.println("listExam.fxml not found!");
 	            }
@@ -132,8 +158,13 @@ public class HomeController {
 	                ListExamPassedController listExamPassedController = loader.getController();
 	                listExamPassedController.setHomeController(this);
 	                
-	                dashContainer.getChildren().clear();
+	                dashContainer.getChildren().clear() ;               
 	                dashContainer.getChildren().add(content);
+	                dashContainer.getChildren().add(optionContainer);
+	                dashContainer.getChildren().add(rectangleCenter);
+	                dashContainer.getChildren().add(anchorDialog);
+	                hideOptionContainer();
+	        		logoutAction();
 	            } else {
 	                System.out.println("listExamPassed.fxml not found!");
 	            }
@@ -153,8 +184,13 @@ public class HomeController {
 	                CodeVerificationController codeVerificationController = loader.getController();
 	                codeVerificationController.setHomeController(this);
 	                
-	                dashContainer.getChildren().clear();
+	                dashContainer.getChildren().clear() ;               
 	                dashContainer.getChildren().add(content);
+	                dashContainer.getChildren().add(optionContainer);
+	                dashContainer.getChildren().add(rectangleCenter);
+	                dashContainer.getChildren().add(anchorDialog);
+	                hideOptionContainer();
+	        		logoutAction();
 	            } else {
 	                System.out.println("codeVerification.fxml not found!");
 	            }
@@ -174,8 +210,13 @@ public class HomeController {
 	                DetailExamController detailExamController = loader.getController();
 	                detailExamController.setHomeController(this);
 	                
-	                dashContainer.getChildren().clear();
+	                dashContainer.getChildren().clear() ;               
 	                dashContainer.getChildren().add(content);
+	                dashContainer.getChildren().add(optionContainer);
+	                dashContainer.getChildren().add(rectangleCenter);
+	                dashContainer.getChildren().add(anchorDialog);
+	                hideOptionContainer();
+	        		logoutAction();
 	            } else {
 	                System.out.println("detailExam.fxml not found!");
 	            }
@@ -195,8 +236,13 @@ public class HomeController {
 	                ExamenController examenController = loader.getController();
 	                examenController.setHomeController(this);
 	                
-	                dashContainer.getChildren().clear();
+	                dashContainer.getChildren().clear() ;               
 	                dashContainer.getChildren().add(content);
+	                dashContainer.getChildren().add(optionContainer);
+	                dashContainer.getChildren().add(rectangleCenter);
+	                dashContainer.getChildren().add(anchorDialog);
+	                hideOptionContainer();
+	        		logoutAction();
 	            } else {
 	                System.out.println("examen.fxml not found!");
 	            }
@@ -216,8 +262,13 @@ public class HomeController {
 	                ResultExamController resultExamController = loader.getController();
 	                resultExamController.setHomeController(this);
 	                
-	                dashContainer.getChildren().clear();
+	                dashContainer.getChildren().clear() ;               
 	                dashContainer.getChildren().add(content);
+	                dashContainer.getChildren().add(optionContainer);
+	                dashContainer.getChildren().add(rectangleCenter);
+	                dashContainer.getChildren().add(anchorDialog);
+	                hideOptionContainer();
+	        		logoutAction();
 	            } else {
 	                System.out.println("resultExam.fxml not found!");
 	            }
@@ -231,12 +282,6 @@ public class HomeController {
         Font poppinsFont = Font.font(customFont.getName(), FontWeight.BOLD, 15);
         Font poppinsFont12 = Font.font(customFont.getName(), 12);
         Font poppinsFontBold12 = Font.font(customFont.getName(), FontWeight.BOLD, 12);
-        
-        introText.setFont(poppinsFont);
-        introText.setPrefHeight(80);
-        
-        passExam.setFont(poppinsFont);
-        seeHistory.setFont(poppinsFont);
         
         logout.setFont(poppinsFont12);
         profil.setFont(poppinsFont12);

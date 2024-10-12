@@ -31,6 +31,9 @@ public class ListExamController {
 	@FXML
 	public GridPane gridPaneExam;
 	
+	@FXML
+	public ImageView btnBack;
+	
 	public HomeController homeController;
 	
 	public static final int COLUMNS = 2; 
@@ -42,6 +45,10 @@ public class ListExamController {
 	public void initialize() {
 		adjustLayout();
 		loadExamenData();
+		
+		btnBack.setOnMouseClicked(e-> {
+			homeController.dashboardInterface();
+		});
 	}
 	
 	public void loadExamenData() {

@@ -1,50 +1,44 @@
 package com.examflow2.controllers;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 public class CreateExam2Controller {
 	public HomeController homeController;
+	
+	@FXML
+	public Label prepareExam, prepareExam1, configure;
 	
 	@FXML
 	public TextField inputQuestion;
 	
 	@FXML
 	public Button btnNext;
+
+	public void setHomeController(HomeController homeController) {
+		this.homeController = homeController;
+	}
 	
-    
     public void initialize() {
+    	adjustLayout();
         btnNext.setOnAction(event -> {
-            try {
-            	homeController.switchToNextScene();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
         });
     }
     
-    /* public void handleRegister() throws IOException {
-    	String theme = inputTheme.getText();
-    	LocalDate dateDebut = inputDateDebut.getValue();
-    	String heureDebut = inputHeureDebut.getText();
-    	LocalDate dateFin = inputDateFin.getValue();
-    	String heureFin = inputHeureFin.getText();
-        String instruction = inputInstruction.getText();
-
-        if (theme.isEmpty() || heureDebut.isEmpty() || heureFin.isEmpty() || instruction.isEmpty()) {
-            System.out.println("Information incomplète");
-            return;
-        }
-        
-        Examen examen = new Examen();
-        ExamenDao.createExamen(examen);
-        
-        switchToNextScene();
-   } */
+    public void adjustLayout() {
+    	Font customFont = Font.loadFont(getClass().getResourceAsStream("/com/examflow2/resources/fonts/Poppins-Regular.ttf"), 20);
+		Font poppinsFont12 = Font.font(customFont.getName(), 12);
+		Font poppinsBoldFont12 = Font.font(customFont.getName(), FontWeight.BOLD, 12);
+		Font poppinsFont = Font.font(customFont.getName(), FontWeight.BOLD, 18);
+		
+		inputQuestion.setFont(poppinsFont12);
+		prepareExam.setFont(poppinsFont12);
+		prepareExam1.setFont(poppinsFont12);
+		configure.setFont(poppinsFont);
+    }
+    
 }
