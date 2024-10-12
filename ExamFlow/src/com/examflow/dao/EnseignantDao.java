@@ -52,4 +52,29 @@ public class EnseignantDao {
 	        }
 		return null;
 	}
+	
+	public static Enseignant getEnseignantById(int idEnseignant) {
+		String query = "SELECT  * FROM enseignant where id = ?";
+		
+		 try (Connection connection = DatabaseConnection.getConnection();
+	             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+	        	preparedStatement.setInt(1, idEnseignant);
+	            ResultSet resultSet = preparedStatement.executeQuery();
+	            
+	            if (resultSet.next()) {
+	            	int id = resultSet.getInt("id");
+	            	String nom = resultSet.getString("nom");
+	            	String mail = resultSet.getString("email");
+	            	String password = resultSet.getString("mdp");
+	            	LocalDateTime dateRegister = (LocalDateTime) resultSet.getObject("date_inscription");
+	            	return new Enseignant(id, nom, mail, password, dateRegister);
+	            	
+	            } else {
+	            	System.out.println("Echec de la connexion");
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+		 return null;
+	}
 }

@@ -49,7 +49,6 @@ public class CreateExamController {
 	}
 	
 	public void initialize() {
-		// Ajustement de la mise en page
 		btnNext.setOnAction(event -> {
             try {
             	handleRegister();
@@ -89,23 +88,20 @@ public class CreateExamController {
             return;
         }
         
-        // Conversion des heures en LocalTime et combinaison avec LocalDate
         LocalTime timeDebut = LocalTime.parse(heureDebut);
         LocalDateTime debut = LocalDateTime.of(dateDebut, timeDebut);
         
         LocalTime timeFin = LocalTime.parse(heureFin);
         LocalDateTime fin = LocalDateTime.of(dateFin, timeFin);
 
-        // Création d'un objet Examen
         Examen examen = new Examen();
         examen.setTheme(themeInput);
         examen.setDebut(dateDebut, heureDebut);
         examen.setFin(dateFin, heureFin);
         examen.setInstruction(instruction);
         
-        // Transfert des informations vers le DAO
-        ExamenDao.createExamen(examen);
+        ExamenDao.createExamen(examen, LoginController.sessionEnseignant);
         
-        homeController.switchToNextScene();  // Change la scène après enregistrement
+        homeController.switchToNextScene();
     }
 }

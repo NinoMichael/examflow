@@ -11,18 +11,18 @@ public class Examen {
 	public LocalDateTime debut;
 	public LocalDateTime fin;
 	public String instruction;
-	public Enseignant idEnseignant;
+	public Enseignant enseignant;
 	
 	public Examen() {}
 	
-	public Examen(int id, String code, String theme, LocalDateTime debut, LocalDateTime fin, String instruction, Enseignant idEnseignant) {
+	public Examen(int id, String code, String theme, LocalDateTime debut, LocalDateTime fin, String instruction, Enseignant enseignant) {
 		this.id = id;
 		this.code = code;
 		this.theme = theme;
 		this.debut = debut;
 		this.fin = fin;
 		this.instruction = instruction;
-		this.idEnseignant = idEnseignant;
+		this.enseignant = enseignant;
 	}
 	
 	public int getId() {
@@ -68,11 +68,11 @@ public class Examen {
 	public void setInstruction(String instruction) {
 		this.instruction = instruction;
 	}
-	public Enseignant getIdEnseignant() {
-		return idEnseignant;
+	public Enseignant getEnseignant() {
+		return enseignant;
 	}
-	public void setIdEnseignant(Enseignant idEnseignant) {
-		this.idEnseignant = idEnseignant;
+	public void setEnseignant(Enseignant enseignant) {
+		this.enseignant = enseignant;
 	}
 	
 	
