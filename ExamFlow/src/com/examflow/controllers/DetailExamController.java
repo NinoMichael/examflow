@@ -1,5 +1,10 @@
 package com.examflow.controllers;
 
+import java.time.Duration;
+
+import com.examflow.dao.QcmDao;
+import com.examflow.models.Examen;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,9 +26,24 @@ public class DetailExamController {
 	
 	public void initialize() {
 		adjustLayout();
+		loadDataExam();
 		btnStartExam.setOnAction(e -> {
 			homeController.examenInterface();
 		});
+	}
+	
+	public void loadDataExam() {
+		Examen exam = ListExamController.staticExamen;
+		int totalQuestion = QcmDao.getTotalQuestion(exam);
+		
+		themeIntitule.setText(exam.getTheme());
+		String totalQuestionStr = String.valueOf(totalQuestion);
+		numberQuestion.setText(totalQuestionStr);
+		
+		Duration duration = Duration.between(exam.getDebut(), exam.getFin());
+		sessionDuration.setText(String.valueOf(duration.toHours()) + " heures");
+		
+		consigneExam.setText(exam.getInstruction());
 	}
 	
 	public void adjustLayout() {

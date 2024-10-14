@@ -39,4 +39,26 @@ public class QcmDao {
         }
 		return qcm;
     }
+	
+	public static int getTotalQuestion(Examen examen) {
+	    String query = "SELECT COUNT(*) as totalQuestion FROM qcm where id_examen = ?";
+	    int totalQuestions = 0;
+	    
+	    try (Connection connection = DatabaseConnection.getConnection();
+	         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+	        
+	        preparedStatement.setInt(1, examen.getId());
+	        
+	        try (ResultSet resultSet = preparedStatement.executeQuery()) {
+	            if (resultSet.next()) {
+	                totalQuestions = resultSet.getInt("totalQuestion");  
+	            }
+	        }
+	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return totalQuestions;
+	}
 }
