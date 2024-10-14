@@ -5,14 +5,16 @@ public class Qcm {
 	public Examen idExamen;
 	public String question;
 	public int reboursSec;
+	public double pointUnitaire;
 	
 	public Qcm() {}
 	
-	public Qcm(int idQcm, Examen idExamen, String question, int reboursSec) {
+	public Qcm(int idQcm, Examen idExamen, String question, int reboursSec, double pointUnitaire) {
 		this.idQcm = idQcm;
 		this.idExamen = idExamen;
 		this.question = question;
 		this.reboursSec = reboursSec;
+		this.pointUnitaire = pointUnitaire;
 	}
 
 	public int getIdQcm() {
@@ -46,4 +48,14 @@ public class Qcm {
 	public void setReboursSec(int reboursSec) {
 		this.reboursSec = reboursSec;
 	}
+
+	public double getPointUnitaire() {
+		return pointUnitaire;
+	}
+
+	public void setPointUnitaire(double pointUnitaire) {
+		this.pointUnitaire = pointUnitaire;
+	}
+	
+	
 }

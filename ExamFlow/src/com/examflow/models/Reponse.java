@@ -5,16 +5,14 @@ public class Reponse {
 	public Qcm idQcm;
 	public String intitule;
 	public boolean estBonne;
-	public double pointUnitaire;
 	
 	public Reponse() {}
 	
-	public Reponse(int idReponse, Qcm idQcm, String intitule, boolean estBonne, double pointUnitaire) {
+	public Reponse(int idReponse, Qcm idQcm, String intitule, boolean estBonne) {
 		this.idReponse = idReponse;
 		this.idQcm = idQcm;
 		this.intitule = intitule;
 		this.estBonne = estBonne;
-		this.pointUnitaire = pointUnitaire;
 	}
 
 	public int getIdReponse() {
@@ -47,13 +45,5 @@ public class Reponse {
 
 	public void setEstBonne(boolean estBonne) {
 		this.estBonne = estBonne;
-	}
-
-	public double getPointUnitaire() {
-		return pointUnitaire;
-	}
-
-	public void setPointUnitaire(double pointUnitaire) {
-		this.pointUnitaire = pointUnitaire;
 	}
 }
