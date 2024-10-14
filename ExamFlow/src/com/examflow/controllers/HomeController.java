@@ -1,28 +1,41 @@
 package com.examflow.controllers;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class HomeController {
 	@FXML
-	public Label logout, profil, nameUser, pLogout;
+	public Label logout, profil, nameUser, pLogout, numberNotif;
 	
 	@FXML
 	public Pane dashContainer;
+	
+	@FXML
+	public ScrollPane notifScroll;
+	
+	@FXML
+	public GridPane notifGrid;
 	
 	@FXML
 	public Rectangle rectangleCenter, rectangleTop, rectangleBottom;
@@ -35,6 +48,14 @@ public class HomeController {
 	
 	@FXML
 	public ImageView userProfile, bellIcon;
+	
+	public static final int NOTIFCOLUMN = 1; 
+	
+	public static int i = 0;
+	
+	public int column = 0;
+	
+	public int row = 0;
 	
 	@FXML
 	public Button cancelLogout, confirmLogout;
@@ -59,6 +80,13 @@ public class HomeController {
 		 optionContainer.setVisible(false);
 		    userProfile.setOnMouseClicked(event -> {
 		        optionContainer.setVisible(!optionContainer.isVisible());
+		    });
+	 }
+	 
+	 public void hideNotifContainer() {
+		 notifScroll.setVisible(false);
+		    bellIcon.setOnMouseClicked(event -> {
+		        notifScroll.setVisible(!notifScroll.isVisible());
 		    });
 	 }
 	 
@@ -122,6 +150,7 @@ public class HomeController {
 	}
 	 
 	public void listExamInterface() {
+		System.out.println("SUCCES");
 		 URL fxmlLocation = getClass().getResource("/com/examflow/resources/fxml/listExam.fxml");
 	        try {
 	            
@@ -160,6 +189,7 @@ public class HomeController {
 	                
 	                dashContainer.getChildren().clear() ;               
 	                dashContainer.getChildren().add(content);
+	                dashContainer.getChildren().add(notifScroll);
 	                dashContainer.getChildren().add(optionContainer);
 	                dashContainer.getChildren().add(rectangleCenter);
 	                dashContainer.getChildren().add(anchorDialog);
@@ -184,13 +214,45 @@ public class HomeController {
 	                CodeVerificationController codeVerificationController = loader.getController();
 	                codeVerificationController.setHomeController(this);
 	                
-	                dashContainer.getChildren().clear() ;               
+	                notifScroll.setVisible(true);
+	                dashContainer.getChildren().clear() ;  
 	                dashContainer.getChildren().add(content);
 	                dashContainer.getChildren().add(optionContainer);
 	                dashContainer.getChildren().add(rectangleCenter);
 	                dashContainer.getChildren().add(anchorDialog);
+	                dashContainer.getChildren().add(notifScroll);
 	                hideOptionContainer();
+	                hideNotifContainer();
 	        		logoutAction();
+	        		
+	        		PauseTransition delay = new PauseTransition(Duration.seconds(5));
+	        		
+	        		delay.setOnFinished(event -> {
+	        	            i++;
+	        	            String iText = String.valueOf(i);
+	        	            numberNotif.setText(iText);
+	        	 
+	        	            String msgNotif = "Le code d'accès pour l'examen de l'enseignant " + 
+	        	                                ListExamController.staticExamen.getEnseignant().getNom() + 
+	        	                                " est " + ListExamController.staticExamen.getCode();
+	        	            Pane codePane = createNotifPane("/com/examflow/resources/images/icons/exam.png", msgNotif);
+	        	            notifGrid.add(codePane, column, row);
+	        	            
+	        	            if (i == 1) {
+	        	                GridPane.setMargin(codePane, new Insets(0, 0, 0, 0));
+	        	            } else {
+	        	                GridPane.setMargin(codePane, new Insets(40, 0, 0, 0));
+	        	            }
+	        	            
+	        	            column++;
+	        	            if (column == NOTIFCOLUMN) {
+	        	                column = 0;
+	        	                row++; 
+	        	            }
+	        	        });
+
+	        	        delay.play();
+	        		
 	            } else {
 	                System.out.println("codeVerification.fxml not found!");
 	            }
@@ -198,6 +260,39 @@ public class HomeController {
 	            e.printStackTrace();
 	        }
 	 }
+	
+	public Pane createNotifPane(String src, String notif) {
+		Pane pane = new Pane();
+        pane.setPrefHeight(200.0);
+        pane.setPrefWidth(200.0);
+        pane.setStyle("-fx-background-color: white;");
+
+        ImageView imageView = new ImageView();
+        imageView.setFitHeight(21.0);
+        imageView.setFitWidth(20.0);
+        imageView.setLayoutX(14.0);
+        imageView.setLayoutY(18.0);
+        imageView.setOpacity(0.68);
+        imageView.setPickOnBounds(true);
+        imageView.setPreserveRatio(true);
+
+        InputStream srcStream = getClass().getResourceAsStream(src);
+        Image image = new Image(srcStream);
+        imageView.setImage(image);
+        
+        Label label = new Label(notif);
+        label.setAlignment(javafx.geometry.Pos.TOP_LEFT);
+        label.setLayoutX(45.0);
+        label.setLayoutY(2.0);
+        label.setPrefHeight(52.0);
+        label.setPrefWidth(139.0);
+        label.setWrapText(true);
+        label.setFont(new Font("System Italic", 10.0));
+
+        pane.getChildren().addAll(imageView, label);
+
+        return pane;
+	}
 	
 	public void detailExamInterface() {
 		 URL fxmlLocation = getClass().getResource("/com/examflow/resources/fxml/detailExam.fxml");

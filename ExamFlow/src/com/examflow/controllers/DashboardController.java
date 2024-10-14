@@ -2,12 +2,16 @@ package com.examflow.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class DashboardController {
 	@FXML
 	public Label titleDash, passExamTitle, seeHistoryTitle;
+	
+	@FXML
+	public AnchorPane passExamPane, seeHistoryPane;
 	
 	public HomeController homeController;
 	
@@ -18,11 +22,11 @@ public class DashboardController {
 	public void initialize() {
 		adjustLayout();
 		
-		passExamTitle.setOnMouseClicked(e -> {
+		passExamPane.setOnMouseClicked(e -> {
 			homeController.listExamInterface();
 		});
 		
-		seeHistoryTitle.setOnMouseClicked(e -> {
+		seeHistoryPane.setOnMouseClicked(e -> {
 			homeController.listExamPassedInterface();
 		});
 	}

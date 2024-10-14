@@ -23,7 +23,7 @@ import javafx.scene.text.FontWeight;
 
 public class ListExamController {
 	@FXML
-	public static int staticExamen;
+	public static Examen staticExamen;
 	
 	@FXML
 	public Label sessionExam, introListExam;
@@ -67,7 +67,8 @@ public class ListExamController {
 	            GridPane.setMargin(anchorPaneExam, new Insets(10, 10, 10, 10));
 	            
 	            anchorPaneExam.setOnMouseClicked(e-> {
-	            	staticExamen = examen.getId();
+	            	staticExamen = examen;
+	            	homeController.codeVerifInterface();
 	            });   
 
 	            column++;
@@ -90,6 +91,7 @@ public class ListExamController {
                 "-fx-background-color: white; " +
                 "-fx-background-radius: 5;"
             );
+        anchorPane.setPickOnBounds(true);
         anchorPane.setCursor(Cursor.HAND);
         
         Label nameTeacher = new Label();
@@ -134,7 +136,7 @@ public class ListExamController {
             clockImageView.setLayoutX(103.0);
             clockImageView.setLayoutY(58.0);
             clockImageView.setOpacity(0.72);
-            clockImageView.setPickOnBounds(true);
+            clockImageView.setPickOnBounds(false);
             clockImageView.setPreserveRatio(true);
             anchorPane.getChildren().add(clockImageView);
         }
@@ -150,7 +152,7 @@ public class ListExamController {
             checkedImageView.setLayoutX(103.0);
             checkedImageView.setLayoutY(103.0);
             checkedImageView.setOpacity(0.72);
-            checkedImageView.setPickOnBounds(true);
+            checkedImageView.setPickOnBounds(false);
             checkedImageView.setPreserveRatio(true);
             anchorPane.getChildren().add(checkedImageView);
         }
@@ -166,7 +168,7 @@ public class ListExamController {
             examenImageView.setLayoutX(23.0);
             examenImageView.setLayoutY(38.0);
             examenImageView.setOpacity(0.72);
-            examenImageView.setPickOnBounds(true);
+            examenImageView.setPickOnBounds(false);
             examenImageView.setPreserveRatio(true);
             anchorPane.getChildren().add(examenImageView);
         }

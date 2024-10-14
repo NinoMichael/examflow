@@ -14,10 +14,13 @@
    <children>
       <Pane prefHeight="451.0" prefWidth="800.0">
          <children>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="22.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="24.0" layoutX="22.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/icons/back.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <ImageView fitHeight="160.0" fitWidth="162.0" layoutX="319.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,7 +33,7 @@
                </font>
             </Label>
             <Label fx:id="introCode" alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="211.0" prefHeight="37.0" prefWidth="496.0" text="Veuillez saisir le code de session que vous avez reçu dans votre notification, qui vous permettra d'assister à l'examen" textAlignment="CENTER" wrapText="true" />
-            <TextField layoutX="305.0" layoutY="274.0" prefHeight="37.0" prefWidth="191.0" />
+            <TextField fx:id="inputCode" layoutX="305.0" layoutY="274.0" prefHeight="37.0" prefWidth="191.0" />
             <Label fx:id="resendCode" alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="328.0" prefHeight="37.0" prefWidth="496.0" text="Renvoyer le code ?" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -43,6 +46,9 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </Pane>

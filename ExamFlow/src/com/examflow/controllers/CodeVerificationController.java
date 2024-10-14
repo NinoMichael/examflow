@@ -3,6 +3,8 @@ package com.examflow.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
@@ -13,6 +15,12 @@ public class CodeVerificationController {
 	@FXML
 	public Button btnValidate;
 	
+	@FXML
+	public ImageView btnBack;
+	
+	@FXML
+	public TextField inputCode;
+	
 	public HomeController homeController;
 
 	public void setHomeController(HomeController homeController) {
@@ -22,10 +30,19 @@ public class CodeVerificationController {
 	public void initialize() {
 		adjustLayout();
 		btnValidate.setOnAction(e -> {
-			homeController.detailExamInterface();
+			 if (inputCode.getText().equals(ListExamController.staticExamen.getCode())) {
+			        homeController.detailExamInterface();
+			 } else {
+			        System.out.println("ECHEC ! CODE INCORRECT");
+			 }
+		});
+		
+		btnBack.setOnMouseClicked(e1 -> {
+			homeController.listExamInterface();
 		});
 	}
 	
+
 	public void adjustLayout() {
 		Font customFont = Font.loadFont(getClass().getResourceAsStream("/com/examflow/resources/fonts/Poppins-Regular.ttf"), 20);
 		Font poppinsFont12 = Font.font(customFont.getName(), 12);
