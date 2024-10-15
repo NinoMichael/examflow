@@ -59,7 +59,7 @@
                            </image>
                         </ImageView>
                         <Label fx:id="durationTime" layoutX="68.0" layoutY="15.0" prefHeight="17.0" prefWidth="150.0" text="Temps passé" />
-                        <Label fx:id="duration" layoutX="68.0" layoutY="35.0" prefHeight="17.0" prefWidth="150.0" text="22 min">
+                        <Label fx:id="duration" layoutX="68.0" layoutY="35.0" prefHeight="17.0" prefWidth="150.0">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -74,7 +74,7 @@
                            </image>
                         </ImageView>
                         <Label fx:id="exactAnswer" layoutX="68.0" layoutY="15.0" prefHeight="17.0" prefWidth="150.0" text="Réponses exactes" />
-                        <Label fx:id="exact" layoutX="68.0" layoutY="32.0" prefHeight="17.0" prefWidth="150.0" text="14">
+                        <Label fx:id="exact" layoutX="68.0" layoutY="32.0" prefHeight="17.0" prefWidth="150.0">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -89,7 +89,7 @@
                            </image>
                         </ImageView>
                         <Label fx:id="totalPoint" layoutX="67.0" layoutY="15.0" prefHeight="17.0" prefWidth="150.0" text="Total points" />
-                        <Label fx:id="total" layoutX="67.0" layoutY="32.0" prefHeight="17.0" prefWidth="150.0" text="14 / 20">
+                        <Label fx:id="total" layoutX="67.0" layoutY="32.0" prefHeight="17.0" prefWidth="150.0">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>

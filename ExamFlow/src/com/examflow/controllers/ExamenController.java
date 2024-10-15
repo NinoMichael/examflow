@@ -32,20 +32,24 @@ public class ExamenController {
     public HomeController homeController;
 
     public List<Qcm> listQuestions;
+    
+    public static int finalReponsesCorrectes;
 
     public List<Reponse> reponsesCorrectes = new ArrayList<>();
 
     public List<Reponse> reponsesIncorrectes = new ArrayList<>();
     
-    public int questionActuelle = 0;
+    public int questionActuelle;
 
-    public static double score = 0;
+    public static double score;
     
     public AnimationTimer timer;
     
     public int tempsRestant; 
    
-    public static double cumulTemps = 0; 
+    public static double cumulTemps; 
+    
+    public static int answeredQuestion;
 
     public void setHomeController(HomeController homeController) {
         this.homeController = homeController;
@@ -55,6 +59,7 @@ public class ExamenController {
         adjustLayout();
         
         listQuestions = QcmDao.getAllQcm(ListExamController.staticExamen);
+        answeredQuestion = listQuestions.size();
         Collections.shuffle(listQuestions); 
         loadExamen(questionActuelle);
         
@@ -112,6 +117,7 @@ public class ExamenController {
                     }
                 } else {
                     this.stop();
+                    answeredQuestion--;
                     validateReponse();
                 }
             }
@@ -157,10 +163,9 @@ public class ExamenController {
         if (!reponsesCorrectes.isEmpty() && reponsesIncorrectes.isEmpty()) {
             for (Reponse bonneReponse : reponsesCorrectes) {
                 scoreQuestion += bonneReponse.getIdQcm().getPointUnitaire(); 
+                finalReponsesCorrectes++;
             }
             score += scoreQuestion; 
-        } else {
-            System.out.println("Certaines réponses sont incorrectes, score 0 pour cette question.");
         }
 
         questionActuelle++;

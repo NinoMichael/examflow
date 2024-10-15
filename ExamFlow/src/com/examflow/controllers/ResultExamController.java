@@ -1,10 +1,8 @@
 package com.examflow.controllers;
 
-import java.io.IOException;
+import com.examflow.dao.QcmDao;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
@@ -32,20 +30,27 @@ public class ResultExamController {
 	
 	public void initialize() {
 		adjustLayout();
+		loadResultExamen();
+		
 		logoutIcon.setOnMouseClicked(e -> {
-		    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/examflow/resources/fxml/home.fxml"));
-		    Scene homeScene;
-		    try {
-		        homeScene = new Scene(loader.load());
-
-		        HomeController homeReturnController = loader.getController();
-		        homeReturnController.setStage(stage);  
-		        stage.setScene(homeScene);            
-		    } catch (IOException e1) {
-		        e1.printStackTrace();
-		    }
+		    homeController.dashboardInterface();
 		});
 
+	}
+	
+	public void loadResultExamen() {
+		answered.setText(String.valueOf(ExamenController.answeredQuestion) + " / " + QcmDao.getAllQcm(ListExamController.staticExamen).size());
+		
+		int tempsPasse = (int) Math.ceil(ExamenController.cumulTemps / 60);
+		duration.setText(String.valueOf(tempsPasse) + " min");
+		
+		if (ExamenController.score % 1 == 0) {
+	        total.setText(String.valueOf((int) ExamenController.score) + " / 20");
+	    } else {
+	    	total.setText(String.valueOf(ExamenController.score) + " / 20");
+	    }
+		
+		exact.setText(String.valueOf(ExamenController.finalReponsesCorrectes));
 	}
 	
 	public void adjustLayout() {
