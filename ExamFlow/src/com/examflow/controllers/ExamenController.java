@@ -162,7 +162,7 @@ public class ExamenController {
 
         if (!reponsesCorrectes.isEmpty() && reponsesIncorrectes.isEmpty()) {
             for (Reponse bonneReponse : reponsesCorrectes) {
-                scoreQuestion += bonneReponse.getIdQcm().getPointUnitaire(); 
+                scoreQuestion += bonneReponse.getQcm().getPointUnitaire(); 
                 finalReponsesCorrectes++;
             }
             score += scoreQuestion; 

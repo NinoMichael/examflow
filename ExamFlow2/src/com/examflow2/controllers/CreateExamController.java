@@ -20,6 +20,9 @@ import javafx.scene.text.FontWeight;
 
 public class CreateExamController {
 	@FXML
+	public static Examen staticExam;
+	
+	@FXML
 	public ImageView btnBack;
 	
 	@FXML
@@ -110,6 +113,7 @@ public class CreateExamController {
         examen.setInstruction(instruction);
         
         ExamenDao.createExamen(examen, LoginController.sessionEnseignant);
+        staticExam = ExamenDao.getLastExamen();
         
         homeController.createExam2Interface();
     }

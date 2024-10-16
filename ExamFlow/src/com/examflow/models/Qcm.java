@@ -2,7 +2,7 @@ package com.examflow.models;
 
 public class Qcm {
 	public int idQcm;
-	public Examen idExamen;
+	public Examen examen;
 	public String question;
 	public int reboursSec;
 	public double pointUnitaire;
@@ -11,10 +11,15 @@ public class Qcm {
 	
 	public Qcm(int idQcm, Examen idExamen, String question, int reboursSec, double pointUnitaire) {
 		this.idQcm = idQcm;
-		this.idExamen = idExamen;
+		this.examen = idExamen;
 		this.question = question;
 		this.reboursSec = reboursSec;
 		this.pointUnitaire = pointUnitaire;
+	}
+
+	public Qcm(int id, Examen exam) {
+		this.idQcm = id;
+		this.examen = exam;
 	}
 
 	public int getIdQcm() {
@@ -25,12 +30,12 @@ public class Qcm {
 		this.idQcm = idQcm;
 	}
 
-	public Examen getIdExamen() {
-		return idExamen;
+	public Examen getExamen() {
+		return examen;
 	}
 
-	public void setIdExamen(Examen idExamen) {
-		this.idExamen = idExamen;
+	public void setExamen(Examen examen) {
+		this.examen = examen;
 	}
 
 	public String getQuestion() {

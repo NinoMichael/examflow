@@ -14,18 +14,15 @@ import com.examflow.models.Qcm;
 import com.examflow.utils.DatabaseConnection;
 
 public class QcmDao {
-	public static Qcm createQuestion(Qcm qcm) {
-        String query = "INSERT INTO Qcm (id, idExamen, question, reboursSec) VALUES (?, ?, ?, ?)";
+	public static Qcm createQuestion(Qcm qcm, Examen exam) {
+        String query = "INSERT INTO Qcm (id_examen, question, rebours_sec, point_unitaire) VALUES (?, ?, null, null)";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)
             ) {
 
-        	preparedStatement.setObject(1, qcm.getIdQcm());
-        	preparedStatement.setObject(2, qcm.getIdExamen());
-            preparedStatement.setString(3, qcm.getQuestion());
-            preparedStatement.setObject(4, qcm.getReboursSec());
-            preparedStatement.setDouble(5, qcm.getPointUnitaire());
+        	preparedStatement.setObject(1, exam.getId());
+            preparedStatement.setString(2, qcm.getQuestion());
             preparedStatement.executeUpdate();
             connection.close();
             
@@ -60,6 +57,32 @@ public class QcmDao {
 	            e.printStackTrace();
 	        }
 			 return qcmList;
+	}
+	
+	public static Qcm getLastQcm(Examen examen) {
+		String query = "SELECT * FROM qcm where id_examen = ? ORDER BY id DESC LIMIT 1";
+		 
+	    try (Connection connection = DatabaseConnection.getConnection();
+	         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+	        
+	        preparedStatement.setInt(1, examen.getId());
+	        
+	        try (ResultSet resultSet = preparedStatement.executeQuery()) {
+	            if (resultSet.next()) {
+	                 int idQcm = resultSet.getInt("id");
+	                 Examen exam = examen;
+	                 
+	                 Qcm qcm = new Qcm(idQcm, exam);
+	                 return qcm;
+	            }
+	        }
+	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return null;
+	    
 	}
 	
 	

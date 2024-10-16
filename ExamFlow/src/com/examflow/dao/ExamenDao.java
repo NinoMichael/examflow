@@ -11,6 +11,7 @@ import java.util.Random;
 
 import com.examflow.models.Enseignant;
 import com.examflow.models.Examen;
+import com.examflow.models.Qcm;
 import com.examflow.utils.DatabaseConnection;
 
 public class ExamenDao {
@@ -83,5 +84,37 @@ public class ExamenDao {
         }
 		 return examenList;
 		}
+	
+	public static Examen getLastExamen() {
+		String query = "SELECT * FROM examen ORDER BY id DESC LIMIT 1";
+		 
+	    try (Connection connection = DatabaseConnection.getConnection();
+	         PreparedStatement preparedStatement = connection.prepareStatement(query)) {    
+	        
+	        try (ResultSet resultSet = preparedStatement.executeQuery()) {
+	            if (resultSet.next()) {
+	                 int idExamen = resultSet.getInt("id");
+	                 String code = resultSet.getString("code");
+	                 String theme = resultSet.getString("theme");
+	                 LocalDateTime debut = (LocalDateTime) resultSet.getObject("debut");
+	                 LocalDateTime fin = (LocalDateTime) resultSet.getObject("fin");
+	                 String instruction = resultSet.getString("instruction");
+	                 
+	                 Enseignant enseignant = new Enseignant();
+	                 int idEnseignant = resultSet.getInt("id_enseignant");
+	                 enseignant.setId(idEnseignant);
+	                 
+	                 Examen exam = new Examen(idExamen, code, theme, debut, fin, instruction, enseignant);
+	                 return exam;
+	            }
+	        }
+	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return null;
+	    
+	}
 		
 }

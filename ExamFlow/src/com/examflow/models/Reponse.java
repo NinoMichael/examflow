@@ -2,15 +2,15 @@ package com.examflow.models;
 
 public class Reponse {
 	public int idReponse;
-	public Qcm idQcm;
+	public Qcm qcm;
 	public String intitule;
 	public boolean estBonne;
 	
 	public Reponse() {}
 	
-	public Reponse(int idReponse, Qcm idQcm, String intitule, boolean estBonne) {
+	public Reponse(int idReponse, Qcm qcm, String intitule, boolean estBonne) {
 		this.idReponse = idReponse;
-		this.idQcm = idQcm;
+		this.qcm = qcm;
 		this.intitule = intitule;
 		this.estBonne = estBonne;
 	}
@@ -23,12 +23,12 @@ public class Reponse {
 		this.idReponse = idReponse;
 	}
 
-	public Qcm getIdQcm() {
-		return idQcm;
+	public Qcm getQcm() {
+		return qcm;
 	}
 
-	public void setIdQcm(Qcm idQcm) {
-		this.idQcm = idQcm;
+	public void setQcm(Qcm qcm) {
+		this.qcm = qcm;
 	}
 
 	public String getIntitule() {
