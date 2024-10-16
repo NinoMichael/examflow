@@ -15,7 +15,7 @@ import com.examflow.utils.DatabaseConnection;
 
 public class QcmDao {
 	public static Qcm createQuestion(Qcm qcm, Examen exam) {
-        String query = "INSERT INTO Qcm (id_examen, question, rebours_sec, point_unitaire) VALUES (?, ?, null, null)";
+        String query = "INSERT INTO Qcm (id_examen, question, rebours_sec, point_unitaire) VALUES (?, ?, ?, null)";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)
@@ -23,6 +23,7 @@ public class QcmDao {
 
         	preparedStatement.setObject(1, exam.getId());
             preparedStatement.setString(2, qcm.getQuestion());
+            preparedStatement.setInt(3, qcm.getReboursSec());
             preparedStatement.executeUpdate();
             connection.close();
             

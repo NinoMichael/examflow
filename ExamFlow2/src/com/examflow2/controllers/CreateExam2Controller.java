@@ -21,10 +21,13 @@ public class CreateExam2Controller {
     public Label prepareExam, prepareExam1, configure;
 
     @FXML
-    public TextField inputQuestion;
+    public TextField inputQuestion, inputConfigure;
 
     @FXML
     public Button btnNext;
+    
+    @FXML
+    public Label configureRebours;
 
     public HomeController homeController;
 
@@ -37,10 +40,12 @@ public class CreateExam2Controller {
 
         btnNext.setOnAction(event -> {
             String input = inputQuestion.getText();
+            int inputRebours = Integer.valueOf(inputConfigure.getText()); 
 
             List<Qcm> qcmList = parseInput(input);
 
             for (Qcm qcm : qcmList) {
+            	qcm.setReboursSec(inputRebours);
                 QcmDao.createQuestion(qcm, CreateExamController.staticExam);
 
                 Qcm qcmInsere = QcmDao.getLastQcm(CreateExamController.staticExam);
@@ -52,6 +57,8 @@ public class CreateExam2Controller {
                     System.out.println("Réponse : " + reponse.getIntitule() + " - Est bonne : " + reponse.isEstBonne());
                 }
             }
+            
+            
         });
     }
 

@@ -44,13 +44,13 @@
                               <Pane prefHeight="522.0" prefWidth="476.0" style="-fx-background-color: e9c283; -fx-border-color: e9c283;">
                                  <children>
                                     <Label fx:id="prepareExam" layoutX="37.0" layoutY="21.0" prefHeight="17.0" prefWidth="330.0" text="Préparation de l'examen" />
-                                    <Label fx:id="configure" layoutX="37.0" layoutY="38.0" prefHeight="17.0" prefWidth="330.0" text="Etape 2 : Questionnaire">
+                                    <Label fx:id="configure" layoutX="37.0" layoutY="38.0" prefHeight="17.0" prefWidth="330.0" text="Etape 2 : Questionnaire &amp; finalisation">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="inputQuestion" alignment="TOP_LEFT" layoutX="40.0" layoutY="196.0" prefHeight="149.0" prefWidth="344.0" />
-                                    <Button fx:id="btnNext" layoutX="42.0" layoutY="383.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="341.0" style="-fx-background-color: white;" text="Valider">
+                                    <TextField fx:id="inputQuestion" alignment="TOP_LEFT" layoutX="41.0" layoutY="169.0" prefHeight="87.0" prefWidth="344.0" />
+                                    <Button fx:id="btnNext" layoutX="42.0" layoutY="383.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="341.0" style="-fx-background-color: white;" text="Créer l'examen">
                                        <effect>
                                           <DropShadow>
                                              <color>
@@ -65,9 +65,11 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Label fx:id="prepareExam1" layoutX="39.0" layoutY="80.0" prefHeight="104.0" prefWidth="345.0" text="Veuillez remplir le champ ci-dessous par les questions. Chaque question doit être mise entre guillemets,  Les bonnes réponses doivent être précédées de signe + et les mauvaises par le signe -.  Toute réponse doit être séparé par des virgules. L'ensemble des questionnaires doit être séparé par le signe ;   " wrapText="true" />
+                                    <Label fx:id="prepareExam1" layoutX="40.0" layoutY="65.0" prefHeight="104.0" prefWidth="345.0" text="Veuillez remplir le champ ci-dessous par les questions. Chaque question doit être mise entre guillemets,  Les bonnes réponses doivent être précédées de signe + et les mauvaises par le signe -.  Toute réponse doit être séparé par des virgules. L'ensemble des questionnaires doit être séparé par le signe ;   " wrapText="true" />
+                                    <Label fx:id="configureRebours" layoutX="40.0" layoutY="281.0" prefHeight="17.0" prefWidth="375.0" text="Configurer le compte à rebours pour chaque question (en secondes)" />
+                                    <TextField fx:id="inputConfigure" layoutX="40.0" layoutY="309.0" prefHeight="33.0" prefWidth="108.0" />
                                  </children>
-                              </Pane>
+                              </Pane> 
                            </content>
                         </ScrollPane>
                      </children>
