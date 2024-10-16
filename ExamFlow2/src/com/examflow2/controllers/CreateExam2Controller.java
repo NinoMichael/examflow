@@ -35,30 +35,37 @@ public class CreateExam2Controller {
         this.homeController = homeController;
     }
 
+    @FXML
     public void initialize() {
         adjustLayout();
 
         btnNext.setOnAction(event -> {
             String input = inputQuestion.getText();
-            int inputRebours = Integer.valueOf(inputConfigure.getText()); 
+            int inputRebours = Integer.valueOf(inputConfigure.getText());
 
             List<Qcm> qcmList = parseInput(input);
 
             for (Qcm qcm : qcmList) {
-            	qcm.setReboursSec(inputRebours);
+                qcm.setReboursSec(inputRebours);
                 QcmDao.createQuestion(qcm, CreateExamController.staticExam);
 
                 Qcm qcmInsere = QcmDao.getLastQcm(CreateExamController.staticExam);
 
-                List<Reponse> reponseList = parseReponses(input, qcmInsere); 
+                List<Reponse> reponseList = parseReponses(input, qcm);
                 for (Reponse reponse : reponseList) {
                     reponse.setQcm(qcmInsere);
                     ReponseDao.createReponse(reponse);
                     System.out.println("Réponse : " + reponse.getIntitule() + " - Est bonne : " + reponse.isEstBonne());
                 }
             }
-            
-            
+
+            List<Qcm> qcmList2 = QcmDao.getAllQcm(CreateExamController.staticExam);
+            for (Qcm qcm2 : qcmList2) {
+                qcm2.setPointUnitaire(20.0 / qcmList2.size());
+                QcmDao.updateQcm(qcm2);
+            }
+
+            homeController.dashboardInterface();
         });
     }
 
@@ -97,11 +104,12 @@ public class CreateExam2Controller {
     public List<Reponse> parseReponses(String input, Qcm qcm) {
         List<Reponse> reponseList = new ArrayList<>();
 
+        String questionInput = qcm.getQuestion();
         String[] questionsAndAnswers = input.split(";");
 
         for (String qAndA : questionsAndAnswers) {
             qAndA = qAndA.trim();
-            if (!qAndA.isEmpty()) {
+            if (qAndA.contains(questionInput)) {
                 String answersPart = qAndA.substring(qAndA.lastIndexOf("\"") + 1).trim();
 
                 String[] answersArray = answersPart.split(",");
@@ -111,16 +119,16 @@ public class CreateExam2Controller {
 
                     if (answer.startsWith("+")) {
                         reponse.setIntitule(answer.substring(1));
-                        reponse.setEstBonne(true);  
+                        reponse.setEstBonne(true);
                     } else if (answer.startsWith("-")) {
                         reponse.setIntitule(answer.substring(1));
-                        reponse.setEstBonne(false); 
+                        reponse.setEstBonne(false);
                     }
 
                     reponse.setQcm(qcm);
-
                     reponseList.add(reponse);
                 }
+                break;
             }
         }
 

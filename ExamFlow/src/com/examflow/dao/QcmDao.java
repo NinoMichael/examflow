@@ -86,6 +86,26 @@ public class QcmDao {
 	    
 	}
 	
+	public static void updateQcm(Qcm qcm) {
+		String query = "UPDATE qcm set id_examen = ?, question = ?, rebours_sec = ?, point_unitaire = ? WHERE id = ?";
+		
+		try (Connection connection = DatabaseConnection.getConnection();
+		         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+		        
+			preparedStatement.setObject(1, qcm.getExamen().getId());
+            preparedStatement.setString(2, qcm.getQuestion());
+            preparedStatement.setInt(3, qcm.getReboursSec());
+            preparedStatement.setDouble(4, qcm.getPointUnitaire());
+            preparedStatement.setInt(5, qcm.getIdQcm());
+            preparedStatement.executeUpdate();
+            connection.close();
+		        
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		    
+	}
+	
 	
 	public static int getTotalQuestion(Examen examen) {
 	    String query = "SELECT COUNT(*) as totalQuestion FROM qcm where id_examen = ?";
